@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use PHPUnit\Framework\Constraint\Constraint;
 
 class CreateCampBenefitsTable extends Migration
 {
@@ -15,9 +16,16 @@ class CreateCampBenefitsTable extends Migration
     {
         Schema::create('camp_benefits', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('camp_id')->unsigned();
+            // 1st Method
+            //$table->bigInteger('camp_id')->unsigned();
+            //$table->unsignedBigInteger('camp_id');
+
+            //2nd Method
+            $table->foreignId('camp_id')->Constraint();
             $table->string('name');
             $table->timestamps();
+
+            //1st Method
             $table->foreign('camp_id')->references('id')->on('camps')->onDelete('cascade');
         });
     }
