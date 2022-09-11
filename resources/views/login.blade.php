@@ -18,9 +18,6 @@
 </head>
 
 <body>
-
-@include('components.navbar')
-
     <section class="login-user">
         <div class="left">
             <img src="{{asset('images/ill_login_new.png')}}" alt="">
